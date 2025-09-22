@@ -121,7 +121,7 @@ resource "aws_launch_template" "foobar" {
 
 resource "aws_autoscaling_group" "bar" {
   depends_on         = [aws_launch_template.foobar]
-  availability_zones = ["us-west-1a"]
+  availability_zones = ["us-east-1a"]
   desired_capacity   = 1
   max_size           = 1
   min_size           = 1
@@ -209,3 +209,4 @@ resource "aws_ecs_service" "demo-service" {
   task_definition = aws_ecs_task_definition.nexus.arn
   desired_count   = 1
 }
+
