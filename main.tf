@@ -138,13 +138,13 @@ resource "aws_ecs_task_definition" "nexus" {
   network_mode             = "bridge"
   cpu                      = "1524"
   memory                   = "4048"
-  execution_role_arn       = "arn:aws:iam::296352766082:role/ecsTaskExecutionRole"
-  task_role_arn            = "arn:aws:iam::296352766082:role/ecsTaskExecutionRole"
+  execution_role_arn       = "arn:aws:iam::826297868656:role/ecsTaskExecutionRole"
+  task_role_arn            = "arn:aws:iam::826297868656:role/ecsTaskExecutionRole"
 
   container_definitions = jsonencode([
     {
       name      = "nexus"
-      image     = "296352766082.dkr.ecr.us-west-1.amazonaws.com/nexus:3.76"
+      image     = "826297868656.dkr.ecr.us-east-1.amazonaws.com/nexus"
       essential = true
       cpu       = 1524
       memory    = 4048
@@ -209,4 +209,5 @@ resource "aws_ecs_service" "demo-service" {
   task_definition = aws_ecs_task_definition.nexus.arn
   desired_count   = 1
 }
+
 
